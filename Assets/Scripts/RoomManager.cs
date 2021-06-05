@@ -67,8 +67,8 @@ public class RoomManager : MonoBehaviour
     {
         Room1.transform.rotation = Quaternion.Euler(0,270,0);
         Room2.transform.rotation = Quaternion.Euler(0,270,0);
-        Room1.transform.DORotate(new Vector3(0,0,0),.2f).SetEase(Ease.InQuad).SetDelay(.1f).OnComplete(EnablePlayer).SetDelay(.2f);
-        Room2.transform.DORotate(new Vector3(0,0,0),.2f).SetEase(Ease.InQuad).SetDelay(.1f);
+        Room1.transform.DORotate(new Vector3(0,0,0),.2f).SetEase(Ease.InQuad).OnComplete(EnablePlayer).SetDelay(.2f);
+        Room2.transform.DORotate(new Vector3(0,0,0),.2f).SetEase(Ease.InQuad);
     }
     void EnablePlayer()
     {

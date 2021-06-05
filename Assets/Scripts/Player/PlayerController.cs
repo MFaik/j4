@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetButton("Interact"))
         {
-            if(other.CompareTag("BackDoor"))
+            if(other.CompareTag("BackDoor") && groundTimer > 0)
             {
                 roomManager.StartSpin(false);
                 rb.velocity = Vector2.zero;
