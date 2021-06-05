@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField]int level;
+    public int level;
     [SerializeField]bool lastLevel;
 
     public void LoadLevel(string levelName)

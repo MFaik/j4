@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         GameObject roomManagerObject = GameObject.FindGameObjectWithTag("RoomManager");
         roomManager = roomManagerObject.GetComponent<RoomManager>();
+        GameObject levelManagerObject = GameObject.FindGameObjectWithTag("LevelManager");
+        levelManager = levelManagerObject.GetComponent<LevelManager>();
     }
 
     void Update()
@@ -107,9 +109,13 @@ public class PlayerController : MonoBehaviour
             }
             else if (other.CompareTag("LevelDoor"))
             {
-                roomManager.StartSpin(true,other.GetComponent<LevelDoor>().level);
+                roomManager.StartSpin(other.GetComponent<LevelDoor>().level);
             }
         }    
+        if(other.CompareTag("Respawn"))
+        {
+            roomManager.StartSpin(levelManager.level);
+        }
     }
 
     public void Die()
