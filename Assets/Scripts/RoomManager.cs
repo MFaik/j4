@@ -38,7 +38,9 @@ public class RoomManager : MonoBehaviour
             return;
         isPlaying = true;
         if(!isEndLevel)
+        {
             Room1.transform.DORotate(new Vector3(0,90,0),.2f).SetEase(Ease.OutQuad).OnComplete(TeleportPlayer);
+        }
         else
         {
             Room1.transform.DORotate(new Vector3(0,90,0),.2f).SetEase(Ease.OutQuad).OnComplete(()=>{levelManager.Finish();});

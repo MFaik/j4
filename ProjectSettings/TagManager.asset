@@ -10,6 +10,7 @@ TagManager:
   - RoomManager
   - LevelManager
   - Button
+  - Piston
   layers:
   - Default
   - TransparentFX

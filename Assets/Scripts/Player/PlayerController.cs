@@ -12,8 +12,8 @@ public class PlayerController : MonoBehaviour
     float groundTimer = 0;
     const float groundTimerMax = .2f;
 
-    const float jumpSpeed = 7;
-    const float jumpDampen = .5f;
+    const float jumpSpeed = 10;
+    const float jumpDampen = .2f;
 
     const float walkAcceleration = 7*4;
     const float walkMaxSpeed = 7f;
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         
         if(!Input.GetButton("Jump") && rb.velocity.y > 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x,rb.velocity.y*jumpDampen*Time.deltaTime);
+            rb.velocity = new Vector2(rb.velocity.x,rb.velocity.y*(jumpDampen*Time.deltaTime));
         }
         //Jump Check
         if(jumpButtonTimer > 0 && groundTimer > 0)

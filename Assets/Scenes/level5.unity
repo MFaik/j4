@@ -13664,6 +13664,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 5213229242370633579, guid: bd9a9008a9b6de24e8f0fec8298d36c6, type: 3}
+    - target: {fileID: 8705594132431781620, guid: 67071e817854b244cbbceb1688a892a6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8705594132431781621, guid: 67071e817854b244cbbceb1688a892a6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.5
@@ -21463,6 +21467,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 8705594132431781620, guid: 67071e817854b244cbbceb1688a892a6, type: 3}
       propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705594132431781620, guid: 67071e817854b244cbbceb1688a892a6, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8705594132431781621, guid: 67071e817854b244cbbceb1688a892a6, type: 3}
