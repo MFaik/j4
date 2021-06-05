@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
     RoomManager roomManager;
     
     float jumpButtonTimer = 0;
@@ -22,8 +23,11 @@ public class PlayerController : MonoBehaviour
 
     LevelManager levelManager;
 
+    [SerializeField]GameObject DeathParticle;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         GameObject roomManagerObject = GameObject.FindGameObjectWithTag("RoomManager");
         roomManager = roomManagerObject.GetComponent<RoomManager>();
     }
@@ -106,5 +110,12 @@ public class PlayerController : MonoBehaviour
                 roomManager.StartSpin(true,2);
             }
         }    
+    }
+
+    public void Die()
+    {
+        Instantiate(DeathParticle,transform.position,Quaternion.identity);
+        spriteRenderer.enabled = false;
+        rb.isKinematic = true;
     }
 }
