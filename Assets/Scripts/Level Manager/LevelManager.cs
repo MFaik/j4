@@ -15,7 +15,10 @@ public class LevelManager : MonoBehaviour
 
     public void Finish()
     {
-        PlayerPrefs.SetInt("UnlockedLevel", level+1);
+        if (PlayerPrefs.GetInt("UnlockedLevel") < level + 1)
+        {
+            PlayerPrefs.SetInt("UnlockedLevel", level + 1);
+        }
         if(!lastLevel)
             LoadLevel("Level"+(level+1));
         else
