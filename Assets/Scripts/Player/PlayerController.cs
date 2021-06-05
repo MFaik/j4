@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D rigidbody;
+    Rigidbody2D rb;
+    RoomManager roomManager;
     
     float jumpButtonTimer = 0;
     const float jumpButtonTimerMax = .2f;
@@ -19,27 +20,31 @@ public class PlayerController : MonoBehaviour
     const float walkDampen = 0.3f;
 
     void Start() {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        GameObject roomManagerObject = GameObject.FindGameObjectWithTag("RoomManager");
+        roomManager = roomManagerObject.GetComponent<RoomManager>();
     }
 
     void Update()
     {
+        if(Input.GetKey("a"))
+            roomManager.StartSpin();
         //Jumping Input
         if(Input.GetButtonDown("Jump"))
         {
             jumpButtonTimer = jumpButtonTimerMax;
         }
         
-        if(!Input.GetButton("Jump") && rigidbody.velocity.y > 0)
+        if(!Input.GetButton("Jump") && rb.velocity.y > 0)
         {
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x,rigidbody.velocity.y*jumpDampen*Time.deltaTime);
+            rb.velocity = new Vector2(rb.velocity.x,rb.velocity.y*jumpDampen*Time.deltaTime);
         }
         //Jump Check
         if(jumpButtonTimer > 0 && groundTimer > 0)
         {
             jumpButtonTimer = 0;
             groundTimer = 0;
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x,jumpSpeed);
+            rb.velocity = new Vector2(rb.velocity.x,jumpSpeed);
         }
         //Decrease Timers
         if(jumpButtonTimer > 0)
@@ -51,7 +56,7 @@ public class PlayerController : MonoBehaviour
             groundTimer -= Time.deltaTime;
         }
         //Walking
-        float horizontalVelocity = rigidbody.velocity.x;
+        float horizontalVelocity = rb.velocity.x;
 
         if(Input.GetAxisRaw("Horizontal") == 0 || (horizontalVelocity > 0) != (Input.GetAxisRaw("Horizontal") > 0))
             horizontalVelocity *= walkDampen;
@@ -64,8 +69,10 @@ public class PlayerController : MonoBehaviour
         {
             horizontalVelocity = walkMaxSpeed * ((horizontalVelocity > 0) ? 1 : -1);
         }
-        rigidbody.velocity = new Vector2(horizontalVelocity,rigidbody.velocity.y);
+        rb.velocity = new Vector2(horizontalVelocity,rb.velocity.y);
     }
+
+
 
     public void ResetGroundTimer()
     {
