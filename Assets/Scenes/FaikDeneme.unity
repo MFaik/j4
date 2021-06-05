@@ -370,18 +370,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7796424365475211627, guid: 1710a363252efee428c14e76c2a7ee3a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7796424365475211627, guid: 1710a363252efee428c14e76c2a7ee3a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7796424365475211627, guid: 1710a363252efee428c14e76c2a7ee3a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7796424365475211639, guid: 1710a363252efee428c14e76c2a7ee3a, type: 3}
       propertyPath: m_Name
       value: Player
