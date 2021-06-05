@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (other.CompareTag("LevelDoor"))
             {
-                roomManager.StartSpin(true,2);
+                roomManager.StartSpin(true,other.GetComponent<LevelDoor>().level);
             }
         }    
     }
