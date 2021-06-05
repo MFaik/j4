@@ -8,4 +8,34 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FaikDeneme.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/ErenDeneme.unity
+    guid: f769f4823ea5b7b4b8af3ccf9acf3297
+  - enabled: 1
+    path: Assets/Scenes/level1.unity
+    guid: 1950de497d56da34480787c6c988de93
+  - enabled: 1
+    path: Assets/Scenes/level2.unity
+    guid: 3f51ac333233b0d469a41cbabfed89df
+  - enabled: 1
+    path: Assets/Scenes/level3.unity
+    guid: 619d89e2ab282f648be17c1da048f256
+  - enabled: 1
+    path: Assets/Scenes/level4.unity
+    guid: c056f1d28fe30624cbdfb9aa8c2c39d0
+  - enabled: 1
+    path: Assets/Scenes/level5.unity
+    guid: 08bea559fe50b7a4faa2a7f2c53b8059
+  - enabled: 1
+    path: Assets/Scenes/level6.unity
+    guid: a21def4212750f64fbcacbd72d5ebacc
+  - enabled: 1
+    path: Assets/Scenes/level7.unity
+    guid: a725e247341280446914772f47a9f64b
+  - enabled: 1
+    path: Assets/Scenes/level8.unity
+    guid: c4c00f50c5208794ca83f7613ba1bd8d
+  - enabled: 1
+    path: Assets/Scenes/levelSelector.unity
+    guid: c916f94570fca9b419c8bea1bd538eef
   m_configObjects: {}
