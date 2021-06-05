@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - BackDoor
+  - Door
+  - RoomManager
   layers:
   - Default
   - TransparentFX

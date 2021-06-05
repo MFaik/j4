@@ -28,7 +28,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(Input.GetKey("a"))
+        {
             roomManager.StartSpin();
+            rb.velocity = Vector2.zero;
+            groundTimer = 0;
+            jumpButtonTimer = 0;
+        }
         //Jumping Input
         if(Input.GetButtonDown("Jump"))
         {
