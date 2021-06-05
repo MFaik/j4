@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     const float walkMaxSpeed = 7f;
     const float walkDampen = 0.3f;
 
+    LevelManager levelManager;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         GameObject roomManagerObject = GameObject.FindGameObjectWithTag("RoomManager");
@@ -27,13 +29,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKey("a"))
-        {
-            roomManager.StartSpin();
-            rb.velocity = Vector2.zero;
-            groundTimer = 0;
-            jumpButtonTimer = 0;
-        }
         //Jumping Input
         if(Input.GetButtonDown("Jump"))
         {
@@ -77,10 +72,26 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(horizontalVelocity,rb.velocity.y);
     }
 
-
-
     public void ResetGroundTimer()
     {
         groundTimer = groundTimerMax;
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if(Input.GetButton("Interact"))
+        {
+            if(other.CompareTag("BackDoor"))
+            {
+                roomManager.StartSpin(false);
+                rb.velocity = Vector2.zero;
+                groundTimer = 0;
+                jumpButtonTimer = 0;
+            }   
+            else if(other.CompareTag("Door"))
+            {
+                roomManager.StartSpin(true);
+            }
+        }    
     }
 }

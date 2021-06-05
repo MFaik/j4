@@ -5,25 +5,20 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
-    public Animator animator;
-    public float transitionTime = 1.5f;
+    [SerializeField]int level;
+    [SerializeField]bool lastLevel;
+
     public void LoadLevel(string levelName)
     {
-        StartCoroutine(LoadLevelAnimation(levelName));
-    }
-
-    public void Finish(int nextLevel)
-    {
-        PlayerPrefs.SetInt("UnlockedLevel", nextLevel);
-        LoadLevel("level"+nextLevel);
-    }
-
-    IEnumerator LoadLevelAnimation(string levelName)
-    {
-        animator.SetTrigger("close");
-
-        yield return new WaitForSeconds(transitionTime);
-
         SceneManager.LoadScene(levelName);
+    }
+
+    public void Finish()
+    {
+        PlayerPrefs.SetInt("UnlockedLevel", level+1);
+        if(!lastLevel)
+            LoadLevel("Level"+(level+1));
+        else
+            LoadLevel("LevelSelector");
     }
 }
