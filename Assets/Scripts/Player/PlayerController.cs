@@ -13,7 +13,8 @@ public class PlayerController : MonoBehaviour
     const float groundTimerMax = .2f;
 
     const float jumpSpeed = 10;
-    const float jumpDampen = .2f;
+    const float jumpSlowDampen = .02f;
+    const float jumpFastDampen = .005f;
 
     const float walkAcceleration = 7*4;
     const float walkMaxSpeed = 7f;
@@ -37,7 +38,11 @@ public class PlayerController : MonoBehaviour
         
         if(!Input.GetButton("Jump") && rb.velocity.y > 0)
         {
-            rb.velocity = new Vector2(rb.velocity.x,rb.velocity.y*(jumpDampen*Time.deltaTime));
+            rb.velocity = new Vector2(rb.velocity.x,0);
+        }
+        else if(rb.velocity.y > 0)
+        {
+            rb.velocity = new Vector2(rb.velocity.x,rb.velocity.y-(9f)*Time.deltaTime);
         }
         //Jump Check
         if(jumpButtonTimer > 0 && groundTimer > 0)
@@ -95,7 +100,8 @@ public class PlayerController : MonoBehaviour
             else if (other.CompareTag("Button"))
             {
                 other.GetComponent<ButtonController>().Interact();
-            }else if (other.CompareTag("LevelDoor"))
+            }
+            else if (other.CompareTag("LevelDoor"))
             {
                 roomManager.StartSpin(true,2);
             }
