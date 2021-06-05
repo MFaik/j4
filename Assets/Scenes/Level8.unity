@@ -11934,7 +11934,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1631035472650516978, guid: cf2a4d30d6d2be4478589960149d765f, type: 3}
       propertyPath: level
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1631035472650516980, guid: cf2a4d30d6d2be4478589960149d765f, type: 3}
       propertyPath: m_Name
@@ -18986,8 +18986,8 @@ PolygonCollider2D:
   m_AutoTiling: 1
   m_Points:
     m_Paths:
-    - - {x: 9.5, y: 4.5}
-      - {x: -9, y: 4.5}
+    - - {x: 9.5, y: 5.5}
+      - {x: -9, y: 5.5}
       - {x: -9, y: -5}
       - {x: 9.5, y: -5}
 --- !u!1001 &1891988360
