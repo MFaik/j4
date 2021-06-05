@@ -9,6 +9,7 @@ TagManager:
   - Door
   - RoomManager
   - LevelManager
+  - Button
   layers:
   - Default
   - TransparentFX

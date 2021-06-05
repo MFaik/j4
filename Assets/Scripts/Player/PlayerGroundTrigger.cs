@@ -9,7 +9,7 @@ public class PlayerGroundTrigger : MonoBehaviour
         playerController = GetComponentInParent<PlayerController>();
     }
     void OnTriggerStay2D(Collider2D other) {
-        if(other.CompareTag("Ground"))
+        if(other.CompareTag("Ground")|| other.CompareTag("Piston"))
             playerController.ResetGroundTimer();
     }
 }

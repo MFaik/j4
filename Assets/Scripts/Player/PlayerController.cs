@@ -92,6 +92,10 @@ public class PlayerController : MonoBehaviour
             {
                 roomManager.StartSpin(true);
             }
+            else if (other.CompareTag("Button"))
+            {
+                other.GetComponent<ButtonController>().Interact();
+            }
         }    
     }
 }
