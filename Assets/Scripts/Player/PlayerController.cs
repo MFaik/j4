@@ -109,12 +109,13 @@ public class PlayerController : MonoBehaviour
             }
             else if (other.CompareTag("LevelDoor"))
             {
-                roomManager.StartSpin(other.GetComponent<LevelDoor>().level);
+                if(!other.GetComponent<LevelDoor>().locked)
+                    roomManager.StartSpin(other.GetComponent<LevelDoor>().level);
             }
         }    
         if(other.CompareTag("Respawn"))
         {
-            roomManager.StartSpin(levelManager.level);
+            roomManager.StartSpin("Level" + levelManager.level,true);
         }
     }
 

@@ -8,21 +8,21 @@ public class LevelSelector : MonoBehaviour
     int UnlockedLevel;
 
     public LevelManager manager;
-    public Button[] buttons;
+    public LevelDoor[] doors;
 
     // Start is called before the first frame update
     void Start()
     {
         UnlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
 
-        for (int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < doors.Length; i++)
         {
-            buttons[i].interactable = false;
+            doors[i].locked = true;
         }
 
         for (int i = 0; i < UnlockedLevel; i++)
         {
-            buttons[i].interactable = true;
+            doors[i].locked = false;
         }
         Debug.Log("Unlocked Level " + UnlockedLevel);
     }

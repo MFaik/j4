@@ -49,11 +49,14 @@ public class RoomManager : MonoBehaviour
         player.SetActive(false);
     }
 
-    public void StartSpin(int customLevel)
+    public void StartSpin(string customLevel, bool die = false)
     {
-        player.GetComponent<PlayerController>().Die();
+        if (die)
+        {
+            player.GetComponent<PlayerController>().Die();
+        }
         Room1.transform.DORotate(new Vector3(0, 90, 0), .2f).SetEase(Ease.OutQuad).SetDelay(.5f);
-        Room2.transform.DORotate(new Vector3(0, 90, 0), .2f).SetEase(Ease.OutQuad).SetDelay(.5f).OnComplete(() => { levelManager.LoadLevel("Level"+customLevel); });
+        Room2.transform.DORotate(new Vector3(0, 90, 0), .2f).SetEase(Ease.OutQuad).SetDelay(.5f).OnComplete(() => { levelManager.LoadLevel(customLevel); });
         player.SetActive(false);
     }
     void TeleportPlayer()

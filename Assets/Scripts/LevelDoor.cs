@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class LevelDoor : MonoBehaviour
 {
-    public int level;
+    public string level;
+    public bool locked = false;
 }

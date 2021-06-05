@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(levelName);
     }
 
-    public void Finish()
+    public void Finish() 
     {
         if (PlayerPrefs.GetInt("UnlockedLevel") < level + 1)
         {
