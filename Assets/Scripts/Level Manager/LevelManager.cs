@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
     public void Finish(int nextLevel)
     {
         PlayerPrefs.SetInt("UnlockedLevel", nextLevel);
-        SceneManager.LoadScene("level"+nextLevel);
+        LoadLevel("level"+nextLevel);
     }
 
     IEnumerator LoadLevelAnimation(string levelName)
