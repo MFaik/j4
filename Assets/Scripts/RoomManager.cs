@@ -48,6 +48,11 @@ public class RoomManager : MonoBehaviour
         Room2.transform.DORotate(new Vector3(0,90,0),.2f).SetEase(Ease.OutQuad);
         player.SetActive(false);
     }
+
+    public void StartSpin(bool isEndLevel,int customLevel)
+    {
+        Room1.transform.DORotate(new Vector3(0, 90, 0), .2f).SetEase(Ease.OutQuad).OnComplete(() => { levelManager.LoadLevel("Level"+customLevel); });
+    }
     void TeleportPlayer()
     {
         room1Active = !room1Active;

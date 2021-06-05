@@ -95,6 +95,9 @@ public class PlayerController : MonoBehaviour
             else if (other.CompareTag("Button"))
             {
                 other.GetComponent<ButtonController>().Interact();
+            }else if (other.CompareTag("LevelDoor"))
+            {
+                roomManager.StartSpin(true,2);
             }
         }    
     }
