@@ -150,6 +150,10 @@ public class PlayerController : MonoBehaviour
                 if(!other.GetComponent<LevelDoor>().locked)
                     roomManager.StartSpin(other.GetComponent<LevelDoor>().level);
             }
+            else if (other.CompareTag("QuitDoor"))
+            {
+                Application.Quit();
+            }
         }    
         if(other.CompareTag("Respawn"))
         {
