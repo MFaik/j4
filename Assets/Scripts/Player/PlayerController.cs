@@ -117,6 +117,14 @@ public class PlayerController : MonoBehaviour
             {
                 other.GetComponent<LeverController>().Interact();
             }
+            else if (other.CompareTag("MusicController"))
+            {
+                other.GetComponent<MusicController>().Interact();
+            }
+            else if (other.CompareTag("SoundController"))
+            {
+                other.GetComponent<SFXController>().Interact();
+            }
             else if (other.CompareTag("LevelDoor"))
             {
                 if(!other.GetComponent<LevelDoor>().locked)
