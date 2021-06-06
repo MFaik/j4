@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerSource : MonoBehaviour
 {
-    public bool powered = false;
+    [HideInInspector]public bool powered = false;
     [SerializeField]PistonController[] piston;
     public void switchPower(bool update)
     {
