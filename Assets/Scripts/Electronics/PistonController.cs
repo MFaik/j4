@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PistonController : MonoBehaviour
 {
+    [SerializeField]bool sessiz;
     [SerializeField]bool poweredAtStart;
     bool state = false;
     [SerializeField] PowerSource[] powers;
@@ -45,7 +46,8 @@ public class PistonController : MonoBehaviour
         col.enabled = true;
         sr.sprite = sprites[1];
         state = true;
-        SoundSource.PlaySFX(6);
+        if(!sessiz)
+            SoundSource.PlaySFX(6);
     }
 
     private void turnOff()
@@ -53,7 +55,8 @@ public class PistonController : MonoBehaviour
         col.enabled = false;
         sr.sprite = sprites[0];
         state = false;
-        SoundSource.PlaySFX(5);
+        if(!sessiz)
+            SoundSource.PlaySFX(5);
     }
     
 }
