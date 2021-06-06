@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class SoundController : MonoBehaviour
+public class SoundSource : MonoBehaviour
 {
     public static int volume = 50;
 

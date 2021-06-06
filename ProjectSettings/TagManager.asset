@@ -13,6 +13,7 @@ TagManager:
   - Piston
   - LevelDoor
   - Lever
+  - Audio
   layers:
   - Default
   - TransparentFX
