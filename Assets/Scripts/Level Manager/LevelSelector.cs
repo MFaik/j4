@@ -15,14 +15,15 @@ public class LevelSelector : MonoBehaviour
     {
         UnlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
 
-        for (int i = 0; i < doors.Length; i++)
-        {
-            doors[i].locked = true;
-        }
-
         for (int i = 0; i < UnlockedLevel; i++)
         {
             doors[i].locked = false;
+        }
+
+        for (int i = UnlockedLevel; i < doors.Length; i++)
+        {
+            doors[i].gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            doors[i].gameObject.GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 
