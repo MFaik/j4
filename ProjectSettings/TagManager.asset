@@ -12,6 +12,7 @@ TagManager:
   - Button
   - Piston
   - LevelDoor
+  - Lever
   layers:
   - Default
   - TransparentFX

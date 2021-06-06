@@ -107,6 +107,10 @@ public class PlayerController : MonoBehaviour
             {
                 other.GetComponent<ButtonController>().Interact();
             }
+            else if (other.CompareTag("Lever"))
+            {
+                other.GetComponent<LeverController>().Interact();
+            }
             else if (other.CompareTag("LevelDoor"))
             {
                 if(!other.GetComponent<LevelDoor>().locked)

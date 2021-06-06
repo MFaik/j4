@@ -22,6 +22,6 @@ public class LevelManager : MonoBehaviour
         if(!lastLevel)
             LoadLevel("Level"+(level+1));
         else
-            LoadLevel("LevelSelector");
+            LoadLevel("Finish");
     }
 }
