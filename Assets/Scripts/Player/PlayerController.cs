@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
     public void RestartGroundTimer()
     {
-        if(rb.velocity.y <= 0)
+        if(rb.velocity.y <= 3)
             groundTimer = groundTimerMax;
     }
 
