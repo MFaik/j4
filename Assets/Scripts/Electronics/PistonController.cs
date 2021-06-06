@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PistonController : MonoBehaviour
 {
+    [SerializeField]bool poweredAtStart;
     bool state = false;
     [SerializeField] PowerSource[] powers;
     private SpriteRenderer sr;
@@ -14,6 +15,12 @@ public class PistonController : MonoBehaviour
     {
         col = GetComponent<BoxCollider2D>();
         sr = GetComponent<SpriteRenderer>();
+        if(poweredAtStart)
+        {
+            col.enabled = true;
+            sr.sprite = sprites[1];
+            state = true;
+        }
     }
 
     public void refresh()

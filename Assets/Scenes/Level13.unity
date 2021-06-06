@@ -2836,12 +2836,6 @@ CompositeCollider2D:
       - X: -35000000
         Y: -25000000
       - X: -35000000
-        Y: -39999900
-      - X: -35000041
-        Y: -39999900
-      - X: -35000100
-        Y: -39999959
-      - X: -35000100
         Y: -40000000
     - - X: 70000000
         Y: 15000000
@@ -2861,7 +2855,7 @@ CompositeCollider2D:
       - {x: -2, y: -3.9999704}
       - {x: -2.0000293, y: -2.5}
       - {x: -3.5, y: -2.5000293}
-      - {x: -3.5000393, y: -4}
+      - {x: -3.5000296, y: -4}
       - {x: -8.5, y: -3.9999704}
       - {x: -8.49997, y: 5}
       - {x: 9, y: 4.9999704}
@@ -3108,7 +3102,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7774799, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -9383,7 +9377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7803355131165083577, guid: 9321259f459ae01428ed5ff45fba0b0f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.1126008
+      value: -0.111111164
       objectReference: {fileID: 0}
     - target: {fileID: 7803355131165083577, guid: 9321259f459ae01428ed5ff45fba0b0f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12846,7 +12840,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7774799, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -19626,34 +19620,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1627705014288022908, guid: 849b7c8cb628c3a4f9630ec49addc3ad, type: 3}
   m_PrefabInstance: {fileID: 6875873758207846309}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6875873758207846311 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6301849704100243410, guid: 849b7c8cb628c3a4f9630ec49addc3ad, type: 3}
-  m_PrefabInstance: {fileID: 6875873758207846309}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &6875873758207846312
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6875873758207846311}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.016572952, y: 0.033144414}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5634499, y: 1.7291708}
-  m_EdgeRadius: 0

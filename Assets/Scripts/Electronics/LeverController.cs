@@ -5,7 +5,7 @@ using UnityEngine;
 public class LeverController : MonoBehaviour
 {
     PowerSource source;
-    private bool powered = false;
+    [SerializeField]bool powered = false;
     private float interactDelay = 0f;
     private SpriteRenderer sr;
     [SerializeField] float delay = 0.5f;
@@ -14,6 +14,8 @@ public class LeverController : MonoBehaviour
     {
         source = GetComponent<PowerSource>();
         sr = GetComponent<SpriteRenderer>();
+        if(powered)
+            sr.sprite = sprites[powered?1:0];
     }
 
     // Update is called once per frame
