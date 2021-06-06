@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.transform.DOScaleY(1.2f,.1f).SetEase(Ease.OutQuad).OnComplete(()=>{spriteRenderer.transform.DOScaleY(1,.1f).SetEase(Ease.OutQuad);});
             spriteRenderer.transform.DOScaleX(.9f,.1f).SetEase(Ease.OutQuad).OnComplete(()=>{spriteRenderer.transform.DOScaleX(1,.1f).SetEase(Ease.OutQuad);});
             rb.velocity = new Vector2(rb.velocity.x,jumpSpeed);
+            SoundSource.PlaySFX(Random.Range(0,3));
         }
         //Decrease Timers
         if(jumpButtonTimer > 0)
@@ -101,10 +102,12 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 groundTimer = 0;
                 jumpButtonTimer = 0;
+                SoundSource.PlaySFX(4);
             }   
             else if(other.CompareTag("Door"))
             {
                 roomManager.StartSpin(true);
+                SoundSource.PlaySFX(4);
             }
             else if (other.CompareTag("Button"))
             {
@@ -122,6 +125,7 @@ public class PlayerController : MonoBehaviour
         }    
         if(other.CompareTag("Respawn"))
         {
+            SoundSource.PlaySFX(3);
             roomManager.StartSpin("Level" + levelManager.level,true);
         }
     }

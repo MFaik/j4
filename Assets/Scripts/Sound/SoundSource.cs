@@ -5,13 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class SoundSource : MonoBehaviour
 {
-    public static int volume = 50;
-
     public static GameObject instance;
 
-    public static AudioSource audioSource;
+    AudioSource audioSource;
 
-    public static AudioClip[] clips;
+    AudioClip[] clips;
 
     private void Start() {
         if(instance)
@@ -26,27 +24,34 @@ public class SoundSource : MonoBehaviour
         }
         audioSource = GetComponent<AudioSource>();
 
+        audioSource.volume = PlayerPrefs.GetFloat("Sound",.5f);
+
         clips = new AudioClip[]
         {
-            Resources.Load("SFX/1") as AudioClip,
-            Resources.Load("SFX/2") as AudioClip,
-            Resources.Load("SFX/3") as AudioClip,
-            Resources.Load("SFX/4") as AudioClip
+            Resources.Load("SFX/jump1") as AudioClip,
+            Resources.Load("SFX/jump2") as AudioClip,
+            Resources.Load("SFX/jump3") as AudioClip,
+            Resources.Load("SFX/dead") as AudioClip,
+            Resources.Load("SFX/door") as AudioClip,
+            Resources.Load("SFX/piston_in") as AudioClip,
+            Resources.Load("SFX/piston_out") as AudioClip
         };
     }
-    
-    void Update()
-    {
-        if(!audioSource)
-            audioSource = GetComponent<AudioSource>();
-        audioSource.volume = volume/100f;
 
+    public static void ChangeVolume(float volume)
+    {
+        volume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat("Sound",volume);
+        instance.GetComponent<SoundSource>().audioSource.volume = volume;
+    }
+
+    void PlaySFXInstance(int i)
+    {
+        audioSource.PlayOneShot(clips[i]);
     }
 
     public static void PlaySFX(int i)
     {
-        if(PlayerPrefs.GetInt("Sound",1) == 0)
-            return;
-        audioSource.PlayOneShot(clips[i]);
+        instance.GetComponent<SoundSource>().PlaySFXInstance(i);
     }
 }

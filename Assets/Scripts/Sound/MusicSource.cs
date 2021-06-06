@@ -4,31 +4,37 @@ using UnityEngine;
 
 public class MusicSource : MonoBehaviour
 {
-    public static int volume = 50;
-
     public static GameObject instance;
 
     AudioSource audioSource;
 
     private void Start() {
-        audioSource = GetComponent<AudioSource>();
         if(instance)
         {
             Destroy(gameObject);
         }
         else
         {
+            audioSource = GetComponent<AudioSource>();
+            audioSource.volume = PlayerPrefs.GetFloat("Music",.5f);
             instance = gameObject;
             DontDestroyOnLoad(gameObject);
         }
     }
-    
+
     void Update()
     {
-        audioSource.volume = volume/100f;
         if(!audioSource.isPlaying)
         {
             audioSource.Play();
         }
     }
+
+    public static void ChangeVolume(float volume)
+    {
+        volume = Mathf.Clamp01(volume);
+        PlayerPrefs.SetFloat("Music",volume);
+        instance.GetComponent<MusicSource>().audioSource.volume = volume;
+    }
+    
 }

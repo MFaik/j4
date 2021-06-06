@@ -24,7 +24,6 @@ public class LevelSelector : MonoBehaviour
         {
             doors[i].locked = false;
         }
-        Debug.Log("Unlocked Level " + UnlockedLevel);
     }
 
     public void DeleteProgress()

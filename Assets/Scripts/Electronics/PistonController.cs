@@ -26,7 +26,8 @@ public class PistonController : MonoBehaviour
         if (isPowered && !state)
         {
             turnOn();
-        }else if (!isPowered && state)
+        }
+        else if (!isPowered && state)
         {
             turnOff();
         }
@@ -37,6 +38,7 @@ public class PistonController : MonoBehaviour
         col.enabled = true;
         sr.sprite = sprites[1];
         state = true;
+        SoundSource.PlaySFX(6);
     }
 
     private void turnOff()
@@ -44,6 +46,7 @@ public class PistonController : MonoBehaviour
         col.enabled = false;
         sr.sprite = sprites[0];
         state = false;
+        SoundSource.PlaySFX(5);
     }
     
 }
