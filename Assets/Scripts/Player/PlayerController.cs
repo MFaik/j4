@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerController : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         GameObject roomManagerObject = GameObject.FindGameObjectWithTag("RoomManager");
         roomManager = roomManagerObject.GetComponent<RoomManager>();
         GameObject levelManagerObject = GameObject.FindGameObjectWithTag("LevelManager");
@@ -55,6 +56,8 @@ public class PlayerController : MonoBehaviour
         {
             jumpButtonTimer = 0;
             groundTimer = 0;
+            spriteRenderer.transform.DOScaleY(1.2f,.1f).SetEase(Ease.OutQuad).OnComplete(()=>{spriteRenderer.transform.DOScaleY(1,.1f).SetEase(Ease.OutQuad);});
+            spriteRenderer.transform.DOScaleX(.9f,.1f).SetEase(Ease.OutQuad).OnComplete(()=>{spriteRenderer.transform.DOScaleX(1,.1f).SetEase(Ease.OutQuad);});
             rb.velocity = new Vector2(rb.velocity.x,jumpSpeed);
         }
         //Decrease Timers
@@ -83,7 +86,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(horizontalVelocity,rb.velocity.y);
     }
 
-    public void ResetGroundTimer()
+    public void RestartGroundTimer()
     {
         groundTimer = groundTimerMax;
     }
