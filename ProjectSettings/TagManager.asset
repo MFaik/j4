@@ -14,6 +14,8 @@ TagManager:
   - LevelDoor
   - Lever
   - Audio
+  - MusicController
+  - SoundController
   layers:
   - Default
   - TransparentFX
