@@ -3102,7 +3102,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7774799, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -9377,7 +9377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7803355131165083577, guid: 9321259f459ae01428ed5ff45fba0b0f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.111111164
+      value: -0.1126008
       objectReference: {fileID: 0}
     - target: {fileID: 7803355131165083577, guid: 9321259f459ae01428ed5ff45fba0b0f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12192,6 +12192,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Piston
       objectReference: {fileID: 0}
+    - target: {fileID: 6262093218109027408, guid: c06c8e7a6c740f346a0a13488fa4b689, type: 3}
+      propertyPath: powers.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6262093218109027408, guid: c06c8e7a6c740f346a0a13488fa4b689, type: 3}
+      propertyPath: powers.Array.data[0]
+      value: 
+      objectReference: {fileID: 6875873758207846311}
     - target: {fileID: 6262093218109027409, guid: c06c8e7a6c740f346a0a13488fa4b689, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -12840,7 +12848,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.7774799, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -19620,3 +19628,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1627705014288022908, guid: 849b7c8cb628c3a4f9630ec49addc3ad, type: 3}
   m_PrefabInstance: {fileID: 6875873758207846309}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6875873758207846311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 303884447585484926, guid: 849b7c8cb628c3a4f9630ec49addc3ad, type: 3}
+  m_PrefabInstance: {fileID: 6875873758207846309}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce0b019f87cef143ac3a04301124797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
