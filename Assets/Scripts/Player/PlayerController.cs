@@ -22,9 +22,14 @@ public class PlayerController : MonoBehaviour
     const float walkMaxSpeed = 7f;
     const float walkDampen = 0.3f;
 
+    float escapeTimer = 0;
+    const float escapeTimerMax = 1f;
+
     LevelManager levelManager;
 
     [SerializeField]GameObject DeathParticle;
+
+    [SerializeField]SpriteRenderer ExitSpriteRenderer;
 
     void Start() {
         rb = GetComponent<Rigidbody2D>();
@@ -37,6 +42,20 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKey("escape"))
+        {
+            escapeTimer += Time.deltaTime;
+            ExitSpriteRenderer.color = new Color(1,1,1,escapeTimer/escapeTimerMax);
+            if(escapeTimer >= escapeTimerMax)
+            {
+                roomManager.StartSpin("LevelSelector",true);
+            }
+        }
+        else
+        {
+            ExitSpriteRenderer.color = new Color(1,1,1,0);
+            escapeTimer = 0;
+        }
         //Jumping Input
         if(Input.GetButtonDown("Jump"))
         {
@@ -89,7 +108,8 @@ public class PlayerController : MonoBehaviour
 
     public void RestartGroundTimer()
     {
-        groundTimer = groundTimerMax;
+        if(rb.velocity.y <= 0)
+            groundTimer = groundTimerMax;
     }
 
     void OnTriggerStay2D(Collider2D other)
