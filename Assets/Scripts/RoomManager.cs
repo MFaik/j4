@@ -55,8 +55,8 @@ public class RoomManager : MonoBehaviour
         {
             player.GetComponent<PlayerController>().Die();
         }
-        Room1.transform.DORotate(new Vector3(0, 90, 0), .2f).SetEase(Ease.OutQuad).SetDelay(.5f);
-        Room2.transform.DORotate(new Vector3(0, 90, 0), .2f).SetEase(Ease.OutQuad).SetDelay(.5f).OnComplete(() => { levelManager.LoadLevel(customLevel); });
+        Room1.transform.DORotate(new Vector3(0, 90, 0), .2f).SetEase(Ease.OutQuad);
+        Room2.transform.DORotate(new Vector3(0, 90, 0), .2f).SetEase(Ease.OutQuad).OnComplete(() => { levelManager.LoadLevel(customLevel); });
         player.SetActive(false);
     }
     void TeleportPlayer()
