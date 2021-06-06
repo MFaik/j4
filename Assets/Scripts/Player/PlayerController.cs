@@ -151,6 +151,10 @@ public class PlayerController : MonoBehaviour
                     roomManager.StartSpin(other.GetComponent<LevelDoor>().level);
                 SoundSource.PlaySFX(4);
             }
+            else if (other.CompareTag("QuitDoor"))
+            {
+                Application.Quit();
+            }
         }    
         if(other.CompareTag("Respawn"))
         {
