@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour
             {
                 if(!other.GetComponent<LevelDoor>().locked)
                     roomManager.StartSpin(other.GetComponent<LevelDoor>().level);
+                SoundSource.PlaySFX(4);
             }
         }    
         if(other.CompareTag("Respawn"))
