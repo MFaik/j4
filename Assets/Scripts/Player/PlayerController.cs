@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]SpriteRenderer ExitSpriteRenderer;
 
+    [SerializeField]SpriteRenderer Transtion;
+
+    bool interacting = false;
+
     void Start() {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -42,6 +46,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetButtonDown("Interact"))
+        {
+            interacting = true;
+        }
+        if(Input.GetButtonUp("Interact"))
+        {
+            interacting = false;
+        }
         if(Input.GetKey("escape"))
         {
             escapeTimer += Time.deltaTime;
@@ -114,42 +126,53 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if(Input.GetButton("Interact"))
+        if(interacting)
         {
             if(other.CompareTag("BackDoor") && groundTimer > 0)
             {
-                roomManager.StartSpin(false);
-                rb.velocity = Vector2.zero;
-                groundTimer = 0;
-                jumpButtonTimer = 0;
-                SoundSource.PlaySFX(4);
+                Transtion.DOFade(1,.2f).OnComplete(()=>{
+                    Transtion.DOFade(0,.2f);
+                    roomManager.StartSpin(false);
+                    rb.velocity = Vector2.zero;
+                    groundTimer = 0;
+                    jumpButtonTimer = 0;
+                    SoundSource.PlaySFX(4);
+                });
+                
+                interacting = false;
             }   
             else if(other.CompareTag("Door"))
             {
                 roomManager.StartSpin(true);
                 SoundSource.PlaySFX(4);
+                interacting = false;
             }
             else if (other.CompareTag("Button"))
             {
                 other.GetComponent<ButtonController>().Interact();
+                interacting = false;
             }
             else if (other.CompareTag("Lever"))
             {
                 other.GetComponent<LeverController>().Interact();
+                interacting = false;
             }
             else if (other.CompareTag("MusicController"))
             {
                 other.GetComponent<MusicController>().Interact();
+                interacting = false;
             }
             else if (other.CompareTag("SoundController"))
             {
                 other.GetComponent<SFXController>().Interact();
+                interacting = false;
             }
             else if (other.CompareTag("LevelDoor"))
             {
                 if(!other.GetComponent<LevelDoor>().locked)
                     roomManager.StartSpin(other.GetComponent<LevelDoor>().level);
                 SoundSource.PlaySFX(4);
+                interacting = false;
             }
             else if (other.CompareTag("QuitDoor"))
             {

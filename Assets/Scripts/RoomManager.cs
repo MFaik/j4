@@ -26,9 +26,10 @@ public class RoomManager : MonoBehaviour
         player.SetActive(false);
         Room1.transform.rotation = Quaternion.Euler(0,270,0);
         Room2.transform.rotation = Quaternion.Euler(0,270,0);
-        Room1.transform.DORotate(new Vector3(0,0,0),.2f).SetEase(Ease.InQuad).OnComplete(()=>{player.SetActive(true);});
+        isPlaying = true;
+        Room1.transform.DORotate(new Vector3(0,0,0),.2f).SetEase(Ease.InQuad).OnComplete(()=>{isPlaying = false;player.SetActive(true);});
         Room2.transform.DORotate(new Vector3(0,0,0),.2f).SetEase(Ease.InQuad);
-
+        Room2Camera.enabled = false;
         
     }
 
@@ -36,17 +37,19 @@ public class RoomManager : MonoBehaviour
     {
         if(isPlaying)
             return;
-        isPlaying = true;
+        
         if(!isEndLevel)
         {
-            Room1.transform.DORotate(new Vector3(0,90,0),.2f).SetEase(Ease.OutQuad).OnComplete(TeleportPlayer);
+            //isPlaying = true;
+            TeleportPlayer();
         }
         else
         {
+            isPlaying = true;
+            Room2.transform.DORotate(new Vector3(0,90,0),.2f).SetEase(Ease.OutQuad);
             Room1.transform.DORotate(new Vector3(0,90,0),.2f).SetEase(Ease.OutQuad).OnComplete(()=>{levelManager.Finish();});
+            player.SetActive(false);
         }
-        Room2.transform.DORotate(new Vector3(0,90,0),.2f).SetEase(Ease.OutQuad);
-        player.SetActive(false);
     }
 
     public void StartSpin(string customLevel, bool die = false)
@@ -72,21 +75,24 @@ public class RoomManager : MonoBehaviour
             player.transform.position += Room1.transform.position-Room2.transform.position;
             Room1Camera.Priority = 2;
             Room2Camera.Priority = 1;
+            Room1Camera.transform.position = Room2Camera.transform.position + Room1.transform.position-Room2.transform.position;
+            Room2Camera.enabled = false;
+            Room1Camera.enabled = true;
         }
         else 
         {
             player.transform.position += Room2.transform.position-Room1.transform.position;
             Room1Camera.Priority = 1;
             Room2Camera.Priority = 2;
+            Room2Camera.transform.position = Room1Camera.transform.position + Room2.transform.position-Room1.transform.position;
+            Room2Camera.enabled = true;
+            Room1Camera.enabled = false;
         }
-        EndSpin();
+        //Invoke(nameof(EndSpin),.2f);
     }
     void EndSpin()
     {
-        Room1.transform.rotation = Quaternion.Euler(0,270,0);
-        Room2.transform.rotation = Quaternion.Euler(0,270,0);
-        Room1.transform.DORotate(new Vector3(0,0,0),.2f).SetEase(Ease.InQuad).OnComplete(EnablePlayer).SetDelay(.2f);
-        Room2.transform.DORotate(new Vector3(0,0,0),.2f).SetEase(Ease.InQuad);
+        isPlaying = false;
     }
     void EnablePlayer()
     {
